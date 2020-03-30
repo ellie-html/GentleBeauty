@@ -676,8 +676,90 @@ hr {
 
 /* GALLERY
   ====================== */
+.visuallyhidden {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  opacity: 0;
+}
+
+.container {
+  height: 80vh;
+  overflow: hidden;
+  padding: 20px;
+  margin-top: 550px;
+  background: #e9dddd;
+}
+
+.card-carousel {
+  --card-width: 80%;
+  --card-max-width: 280px;
+  --card-height: 350px;
+  --carousel-min-width: 600px;
+  z-index: 1;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: var(--card-height);
+  min-width: var(--carousel-min-width);
+  -webkit-transition: -webkit-filter .3s ease;
+  transition: -webkit-filter .3s ease;
+  transition: filter .3s ease;
+  transition: filter .3s ease, -webkit-filter .3s ease;
+  margin-top: 200px;
+}
+
+@media screen and (max-width: 640px) {
+  .card-carousel {
+    margin-left: calc((100vw - var(--carousel-min-width) - 40px) / 2);
+  }
+}
+
+.card-carousel.smooth-return {
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.card-carousel .card {
+  background: whitesmoke;
+  width: var(--card-width);
+  max-width: var(--card-max-width);
+  text-align: center;
+  padding: 1em;
+  min-width: 250px;
+  height: var(--card-height);
+  position: absolute;
+  margin: 0 auto;
+  color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: inherit;
+  transition: inherit;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  -webkit-filter: brightness(0.9);
+          filter: brightness(0.9);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card.highlight {
+  -webkit-filter: brightness(1);
+          filter: brightness(1);
+}
+
 .gallery {
-  margin-top: 500px;
+  margin-top: 400px;
 }
 
 @media (min-width: 1000px) {
@@ -696,88 +778,12 @@ hr {
   .right-gallery h3 {
     padding-top: 250px;
   }
-  .visuallyhidden {
-    position: absolute;
-    z-index: -1;
-    right: 0;
-    opacity: 0;
-  }
-  h1 {
-    color: white;
-    text-align: center;
-    margin-top: 1em;
-  }
   .container {
     height: 100vh;
     overflow: hidden;
     padding: 20px;
+    margin-top: 0;
     background: #e9dddd;
-  }
-  .card-carousel {
-    --card-width: 80%;
-    --card-max-width: 280px;
-    --card-height: 350px;
-    --carousel-min-width: 600px;
-    z-index: 1;
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-    height: var(--card-height);
-    min-width: var(--carousel-min-width);
-    -webkit-transition: -webkit-filter .3s ease;
-    transition: -webkit-filter .3s ease;
-    transition: filter .3s ease;
-    transition: filter .3s ease, -webkit-filter .3s ease;
-    margin-top: 200px;
-  }
-}
-
-@media screen and (min-width: 1000px) and (max-width: 640px) {
-  .card-carousel {
-    margin-left: calc((100vw - var(--carousel-min-width) - 40px) / 2);
-  }
-}
-
-@media (min-width: 1000px) {
-  .card-carousel.smooth-return {
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
-  }
-  .card-carousel .card {
-    background: whitesmoke;
-    width: var(--card-width);
-    max-width: var(--card-max-width);
-    text-align: center;
-    padding: 1em;
-    min-width: 250px;
-    height: var(--card-height);
-    position: absolute;
-    margin: 0 auto;
-    color: rgba(0, 0, 0, 0.5);
-    -webkit-transition: inherit;
-    transition: inherit;
-    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
-    border-radius: 1em;
-    -webkit-filter: brightness(0.9);
-            filter: brightness(0.9);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .card.highlight {
-    -webkit-filter: brightness(1);
-            filter: brightness(1);
   }
 }
 
